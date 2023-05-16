@@ -1,3 +1,4 @@
+#include "Gestor.h"
 
 #ifndef DA_PROJETO_2_MENU_H
 #define DA_PROJETO_2_MENU_H
@@ -5,7 +6,10 @@
  * @brief Represents the menu.
  */
 class Menu{
-
+    /**
+     * @brief A manager.
+     */
+    Gestor gestor_;
 public:
     /**
      * @brief Constructor of the Menu class.
@@ -19,5 +23,6 @@ public:
     /**
      * @brief Initializes the max trains' menu.
      */
+     void Toy();
 };
 #endif //DA_PROJETO_2_MENU_H
