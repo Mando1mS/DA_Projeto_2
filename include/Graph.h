@@ -1,6 +1,6 @@
 
-#ifndef DA_PROJETO_1_GRAPH_H
-#define DA_PROJETO_1_GRAPH_H
+#ifndef DA_PROJETO_2_GRAPH_H
+#define DA_PROJETO_2_GRAPH_H
 
 #include <iostream>
 #include <vector>
@@ -12,8 +12,6 @@
 #include <unordered_map>
 #include <unordered_set>
 
-
-#include "../include/Estacao.h"
 
 using namespace std;
 /**
@@ -28,19 +26,11 @@ private:
          */
         std::string dest;
         /**
-         * @brief Type of service used.
-         */
-        std::string serv;
-        /**
          * @brief Capacity of the line.
          * @details Number of simultaneously traveling trains in a line.
          */
-        int cap;
-        /**
-         * @brief Current flow of the line.
-         * @details Maximum amount of trains that can travel in this line.
-         */
-        int flow = 0;
+        double dist;
+
     };
     struct Node {
         /**

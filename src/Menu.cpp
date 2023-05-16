@@ -3,11 +3,9 @@
 #include <string>
 #include "../include/Menu.h"
 
-namespace std;
 
-Menu::Menu() {
-    gestor_=Gestor();
-}
+
+Menu::Menu():gestor_(Gestor("../data/Toy-Graphs/tourism.csv")) {}
 void Menu::iniciarMenu() {
     while(true) {
         std::cout << "--------------------------------------------------------\n";
@@ -58,7 +56,7 @@ void Menu::Toy()
         std::cout << "| 2 - Stadiums                                         |\n";
         std::cout << "| 3 - Tourism                                          |\n";
         std::cout << "|                                                      |\n";
-        std::cout << "| 0 - Exit                                             |\n";
+        std::cout << "| 0 - Go back                                          |\n";
         std::cout << "--------------------------------------------------------\n";
 
         char opt;
@@ -72,7 +70,7 @@ void Menu::Toy()
 
         switch(opt) {
             case '1':
-                
+
                 break;
             case '2':
 
@@ -88,5 +86,43 @@ void Menu::Toy()
     }
 }
 
+void Menu::ToyShip()
+{
+    while(true) {
+        std::cout << "--------------------------------------------------------\n";
+        std::cout << "|                Toy Graph - Shipping                  |\n";
+        std::cout << "|                                                      |\n";
+        std::cout << "|                                                      |\n";
+        std::cout << "| 1 - Mostrar                                          |\n";
+        std::cout << "| 2 - Opcao 2                                          |\n";
+        std::cout << "| 3 - Opcao 3                                          |\n";
+        std::cout << "|                                                      |\n";
+        std::cout << "| 0 - Go back                                          |\n";
+        std::cout << "--------------------------------------------------------\n";
 
+        char opt;
+        while(true) {
+            std::cout << "\nOpcao: ";
+            std::cin >> opt;
+            if(opt <= '3' && opt >= '0' || opt == '9')
+                break;
+            std::cout << "Opcao invalida, escolha outra.\n";
+        }
+
+        switch(opt) {
+            case '1':
+                break;
+            case '2':
+
+                break;
+            case '3':
+                break;
+            case '9':
+                break;
+            case '0':
+                Toy();
+                break;
+        }
+    }
+}
 
