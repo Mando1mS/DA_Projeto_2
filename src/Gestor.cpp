@@ -29,64 +29,8 @@ void Gestor::LerFicheiros(std::string fich) {
         getline(ss, concelho, ',');
         getline(ss, localidade, ',');
         getline(ss, linha, '\r');
-        District d;
-        Municipality m;
-        if(linha2=="Todos")
-        {
+        graph_->addNode(nome, estacao);//n
 
-            m.Mun_setNome(concelho);
-            m.Mun_setCapacidade(0);
-            if(!std::count(municip.begin(), municip.end(), m))
-            {
-                municip.push_back(m);
-            }
-            Estacao estacao = Estacao(nome, d, m, localidade, linha);
-
-            bool found = false;
-            for (auto x: distritos) {
-                if (x.getNome() == distrito) {
-                    estacao = Estacao(nome, x, m, localidade, linha);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                d.setCapacidade(0);
-                d.setNome(distrito);
-                distritos.push_back(d);
-                estacao = Estacao(nome, d, m, localidade, linha);
-            }
-            network_->addNode(nome, estacao);//n
-        }
-        else
-        {
-            if(linha2==linha)
-            {
-                m.Mun_setNome(concelho);
-                m.Mun_setCapacidade(0);
-                if(!std::count(municip.begin(), municip.end(), m))
-                {
-                    municip.push_back(m);
-                }
-                Estacao estacao = Estacao(nome, d, m, localidade, linha);
-
-                bool found = false;
-                for (auto x: distritos) {
-                    if (x.getNome() == distrito) {
-                        estacao = Estacao(nome, x, m, localidade, linha);
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    d.setCapacidade(0);
-                    d.setNome(distrito);
-                    distritos.push_back(d);
-                    estacao = Estacao(nome, d, m, localidade, linha);
-                }
-                network_->addNode(nome, estacao);//n
-            }
-        }
     }
     while(getline(network_input, line)) {
         std::stringstream ss(line);
