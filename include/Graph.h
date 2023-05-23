@@ -24,19 +24,19 @@ private:
          * @brief Destination Node.
          * @details Uses only the name because of its unique nature.
          */
-        int dest;
+        std::string dest;
         /**
          * @brief Capacity of the line.
          * @details Number of simultaneously traveling trains in a line.
          */
-        double dist;
+        std::string dist;
 
     };
     struct Node {
         /**
          * @brief id.
          */
-        int id;
+        std::string id;
         /**
          * @brief List of outgoing edges, to adjacent nodes.
          */
@@ -60,7 +60,7 @@ public:
      * @param nome_estacao Name of the station.
      * @param estacao All of the station information.
      */
-    void addNode(const int &id);
+    void addNode(const std::string &id);
     /**
      * @brief Add an edge from a source station to a target station using the capacity of the line as the weight.
      * @details Time Complexity - O(|V| + |E|).
@@ -70,12 +70,12 @@ public:
      * @param cap Number of simultaneously traveling trains in a line.
      * @param tipo Type of service used.
      */
-    void addEdge(const int &id_source, const int &id_target,double dist);
+    void addEdge(const std::string &id_source, const std::string &id_target,std::string dist);
     /**
      * @brief A hash table containing the connection between the name of the station and its node.
      * @details When searching the Time Complexity is O(1).
      */
-    std::unordered_map<int, Node> nodes;
+    std::unordered_map<std::string, Node> nodes;
      void setUnvisited();
      };
 

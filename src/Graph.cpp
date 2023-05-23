@@ -12,11 +12,11 @@ void Graph::setUnvisited() {
     }
 }
 
-void Graph::addNode(const int &id) {
+void Graph::addNode(const std::string &id) {
     nodes.insert({ id, { id,{},false}});//n
 }
 
-void Graph::addEdge(const int &id_source, const int &id_target,double dist)
+void Graph::addEdge(const std::string &id_source, const std::string &id_target,std::string dist)
 {
     auto source = nodes.find(id_source);
     auto target = nodes.find(id_target);

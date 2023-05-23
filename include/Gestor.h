@@ -25,5 +25,6 @@ public:
     /**
      * @brief Prints all of the stored stations.
      */
+     void MostrarEstacoes();
 };
 #endif //DA_PROJETO_1_GESTOR_H

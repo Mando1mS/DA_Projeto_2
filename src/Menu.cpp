@@ -5,7 +5,7 @@
 
 
 
-Menu::Menu():gestor_(Gestor("../data/Toy-Graphs/tourism.csv")) {}
+Menu::Menu():gestor_(Gestor("../data/Toy-Graphs/stadiums.csv")) {}
 void Menu::iniciarMenu() {
     while(true) {
         std::cout << "--------------------------------------------------------\n";
@@ -70,12 +70,13 @@ void Menu::Toy()
 
         switch(opt) {
             case '1':
-
+                ToyShip();
                 break;
             case '2':
 
                 break;
             case '3':
+
                 break;
             case '9':
                 break;
@@ -111,6 +112,7 @@ void Menu::ToyShip()
 
         switch(opt) {
             case '1':
+                gestor_.MostrarEstacoes();
                 break;
             case '2':
 
