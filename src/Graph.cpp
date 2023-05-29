@@ -12,11 +12,11 @@ void Graph::setUnvisited() {
     }
 }
 
-void Graph::addNode(const std::string &id) {
+void Graph::addNode(const std::string &id,string label) {
     auto find=nodes.find(id);
     if(find==nodes.end())
     {
-        nodes.insert({ id, { id,{},{"",""},false}});//n
+        nodes.insert({ id, { id,{},{"",""},label,false}});//n
     }
 }
 
@@ -26,7 +26,7 @@ void Graph::addNode(const std::string &id,std::string lng, std::string lat)
     auto find=nodes.find(id);
     if(find==nodes.end())
     {
-        nodes.insert({ id, { id,{},{lng,lat},false}});//n
+        nodes.insert({ id, { id,{},{lng,lat},"",false}});//n
     }
 }
 void Graph::addEdge(const std::string &id_source, const std::string &id_target,std::string &dist)

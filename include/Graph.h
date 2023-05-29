@@ -46,8 +46,9 @@ private:
          * @details This variable set to True means that the node has been visited and False otherwise.
          */
          std::pair<string,string> coord;
-        bool visited;
-        /**
+         std::string label;
+         bool visited;
+         /**
          * @brief A list that stores another list with all the stations and services from the source all the way to the target node.
          */
     };
@@ -61,7 +62,7 @@ public:
      * @param nome_estacao Name of the station.
      * @param estacao All of the station information.
      */
-    void addNode(const std::string &id);
+    void addNode(const std::string &id,std::string label="");
 
     /**
      * @brief Add a node to the Graph using the name of the station as a key and the whole "Estacao" class as the value.
