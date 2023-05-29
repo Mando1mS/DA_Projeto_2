@@ -24,9 +24,10 @@ void Gestor::LerFicheiros(std::string fich) {
 
         getline(ss, source, ',');//n
         getline(ss, target, ',');
-        getline(ss, dist, ',');
+        getline(ss, dist, '\r');
+        graph_->addNode(source);
+        graph_->addNode(target);
         graph_->addEdge(source,target,dist);
-
     }
 }
 

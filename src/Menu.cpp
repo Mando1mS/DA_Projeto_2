@@ -40,7 +40,6 @@ void Menu::iniciarMenu() {
                 break;
             case '0':
                 exit(3);
-                return;
         }
     }
 }

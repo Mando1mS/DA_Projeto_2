@@ -70,12 +70,12 @@ public:
      * @param cap Number of simultaneously traveling trains in a line.
      * @param tipo Type of service used.
      */
-    void addEdge(const std::string &id_source, const std::string &id_target,std::string dist);
+    void addEdge(const std::string &id_source, const std::string &id_target,std::string &dist);
     /**
      * @brief A hash table containing the connection between the name of the station and its node.
      * @details When searching the Time Complexity is O(1).
      */
-    std::unordered_map<std::string, Node> nodes;
+     std::unordered_map<std::string, Node> nodes;
      void setUnvisited();
      };
 

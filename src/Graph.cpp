@@ -13,21 +13,18 @@ void Graph::setUnvisited() {
 }
 
 void Graph::addNode(const std::string &id) {
-    nodes.insert({ id, { id,{},false}});//n
+    auto find=nodes.find(id);
+    if(find==nodes.end())
+    {
+        nodes.insert({ id, { id,{},false}});//n
+    }
 }
 
-void Graph::addEdge(const std::string &id_source, const std::string &id_target,std::string dist)
+void Graph::addEdge(const std::string &id_source, const std::string &id_target,std::string &dist)
 {
     auto source = nodes.find(id_source);
     auto target = nodes.find(id_target);
-    if(source == nodes.end())
-    {
-        addNode(id_source);
-    }
-    if(target == nodes.end())
-    {
-        addNode(id_target);
-    }
+    if(source == nodes.end() || target == nodes.end() || source == target) return;
     source->second.adj.push_back({id_target,dist});
 }
 
