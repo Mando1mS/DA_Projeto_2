@@ -16,12 +16,14 @@ private:
      */
     Graph* graph_;
     void LerFicheiros(std::string fich);
+    void LerFicheiros(std::string fich,std::string fich2);
 public:
     /**
      * @brief Creates a new manager.
      * @details Constructor of the "Gestor" class.
      */
     Gestor(std::string fich);
+    Gestor(std::string fich,std::string fich2);
     /**
      * @brief Prints all of the stored stations.
      */

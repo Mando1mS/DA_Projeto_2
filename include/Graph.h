@@ -45,6 +45,7 @@ private:
          * @brief Verifies if the node has been visited on a previous search.
          * @details This variable set to True means that the node has been visited and False otherwise.
          */
+         std::pair<string,string> coord;
         bool visited;
         /**
          * @brief A list that stores another list with all the stations and services from the source all the way to the target node.
@@ -61,6 +62,15 @@ public:
      * @param estacao All of the station information.
      */
     void addNode(const std::string &id);
+
+    /**
+     * @brief Add a node to the Graph using the name of the station as a key and the whole "Estacao" class as the value.
+     * @details Time Complexity - O(|V| + |E|).
+     * @details V is the number of vertices/nodes and E is the number of edges/links.
+     * @param nome_estacao Name of the station.
+     * @param estacao All of the station information.
+     */
+    void addNode(const std::string &id,std::string lng, std::string lat);
     /**
      * @brief Add an edge from a source station to a target station using the capacity of the line as the weight.
      * @details Time Complexity - O(|V| + |E|).

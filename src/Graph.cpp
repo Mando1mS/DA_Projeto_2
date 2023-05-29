@@ -16,10 +16,19 @@ void Graph::addNode(const std::string &id) {
     auto find=nodes.find(id);
     if(find==nodes.end())
     {
-        nodes.insert({ id, { id,{},false}});//n
+        nodes.insert({ id, { id,{},{"",""},false}});//n
     }
 }
 
+
+void Graph::addNode(const std::string &id,std::string lng, std::string lat)
+{
+    auto find=nodes.find(id);
+    if(find==nodes.end())
+    {
+        nodes.insert({ id, { id,{},{lng,lat},false}});//n
+    }
+}
 void Graph::addEdge(const std::string &id_source, const std::string &id_target,std::string &dist)
 {
     auto source = nodes.find(id_source);

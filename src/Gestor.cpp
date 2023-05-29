@@ -12,6 +12,11 @@ Gestor::Gestor(string fich) {
     graph_=new Graph();
     LerFicheiros(fich);
 }
+
+Gestor::Gestor(string fich,string fich2) {
+    graph_=new Graph();
+    LerFicheiros(fich,fich2);
+}
 void Gestor::LerFicheiros(std::string fich) {
     std::ifstream input(fich);
     std::string line;
@@ -32,7 +37,35 @@ void Gestor::LerFicheiros(std::string fich) {
     }
 }
 
+void Gestor::LerFicheiros(std::string fich,std::string fich2) {
+    std::ifstream input_nodes(fich);
+    std::ifstream input_edges(fich2);
+    std::string line;
+    //passar a primeira linha á frente pois tem dados desnecessários.
+    getline(input_nodes, line);
+    getline(input_edges, line);
+    while(getline(input_nodes, line)) {//n^2
+        std::stringstream ss(line);
 
+        std::string source, lng, lat;
+
+        getline(ss, source, ',');//n
+        getline(ss, lng, ',');
+        getline(ss, lat, '\r');
+        graph_->addNode(source,lng,lat);
+    }
+    while(getline(input_edges, line))
+    {
+        std::stringstream ss(line);
+        std::string source, target, dist;
+
+        getline(ss, source, ',');//n
+        getline(ss, target, ',');
+        getline(ss, dist, '\r');
+        graph_->addEdge(source,target,dist);
+        graph_->addEdge(target,source,dist);
+    }
+}
 void Gestor::MostrarEstacoes() {
     for(auto node:graph_->nodes)
     {
