@@ -25,13 +25,23 @@ void Gestor::LerFicheiros(std::string fich) {
     while(getline(input, line)) {//n^2
         std::stringstream ss(line);
 
-        std::string source, target, dist;
+        std::string source, target, dist,trec,label1,label2;
 
         getline(ss, source, ',');//n
         getline(ss, target, ',');
-        getline(ss, dist, '\r');
-        graph_->addNode(source);
-        graph_->addNode(target);
+        getline(ss, dist, ',');
+        if (ss >> trec) {
+            // Handle the case with labels
+            getline(ss, label1, ',');
+            getline(ss, label2, '\r');
+            graph_->addNode(source,label1);
+            graph_->addNode(target,label2);
+        } else {
+            // Handle the case without labels
+            getline(ss, dist, '\r');
+            graph_->addNode(source);
+            graph_->addNode(target);
+        }
         graph_->addEdge(source,target,dist);
         graph_->addEdge(target,source,dist);
     }
