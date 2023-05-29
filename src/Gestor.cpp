@@ -28,6 +28,7 @@ void Gestor::LerFicheiros(std::string fich) {
         graph_->addNode(source);
         graph_->addNode(target);
         graph_->addEdge(source,target,dist);
+        graph_->addEdge(target,source,dist);
     }
 }
 
