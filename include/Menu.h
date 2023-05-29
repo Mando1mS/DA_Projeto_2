@@ -24,6 +24,7 @@ public:
      * @brief Initializes the max trains' menu.
      */
      void Toy();
-     void ToyShip();
+    void EFC();
+     void ToyShow();
 };
 #endif //DA_PROJETO_2_MENU_H

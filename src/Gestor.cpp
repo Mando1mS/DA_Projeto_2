@@ -76,7 +76,7 @@ void Gestor::LerFicheiros(std::string fich,std::string fich2) {
         graph_->addEdge(target,source,dist);
     }
 }
-void Gestor::MostrarEstacoes() {
+void Gestor::MostrarNodes() {
     for(auto node:graph_->nodes)
     {
         cout << left << setw(6) << "Source: " << setw(40) << node.first << "\n";
