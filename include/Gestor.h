@@ -35,5 +35,6 @@ public:
      */
      void MostrarNodes();
      void VerAdj();
+     void BackTracking(int n, int currentNode, int count, int currentCost, int &bestCost);
 };
 #endif //DA_PROJETO_1_GESTOR_H

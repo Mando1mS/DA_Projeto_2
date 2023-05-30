@@ -83,7 +83,7 @@ public:
      */
     void addEdge(const int &id_source, const int &id_target,const double &dist);
     /**
-     * @brief A hash table containing the connection between the name of the station and its node.
+     * @brief A hash table containing the conne/home/linus/DA/DA-QuickStartction between the name of the station and its node.
      * @details When searching the Time Complexity is O(1).
      */
      std::unordered_map<int, Node> nodes;

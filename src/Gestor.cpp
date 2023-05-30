@@ -114,3 +114,9 @@ void Gestor::VerAdj() {
         cout << "Nao encontrado" << "\n";
     }
 }
+
+void Gestor::BackTracking(int n, int currentNode, int count, int currentCost, int& bestCost){
+    if(count==n && ){
+        bestCost = min(bestCost, currentCost + graph_.)
+    }
+}
