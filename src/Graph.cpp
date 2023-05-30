@@ -12,7 +12,7 @@ void Graph::setUnvisited() {
     }
 }
 
-void Graph::addNode(const std::string &id,string label) {
+void Graph::addNode(const int &id,string label) {
     auto find=nodes.find(id);
     if(find==nodes.end())
     {
@@ -21,7 +21,7 @@ void Graph::addNode(const std::string &id,string label) {
 }
 
 
-void Graph::addNode(const std::string &id,std::string lng, std::string lat)
+void Graph::addNode(const int &id,std::string lng, std::string lat)
 {
     auto find=nodes.find(id);
     if(find==nodes.end())
@@ -31,12 +31,24 @@ void Graph::addNode(const std::string &id,std::string lng, std::string lat)
 }
 
 
-void Graph::addEdge(const std::string &id_source, const std::string &id_target,std::string &dist)
+void Graph::addEdge(const int &id_source, const int &id_target,const double &dist)
 {
     auto source = nodes.find(id_source);
     auto target = nodes.find(id_target);
     if(source == nodes.end() || target == nodes.end() || source == target) return;
     source->second.adj.push_back({id_target,dist});
+}
+
+double Graph::HasEdge(const int &id_source, const int &id_target)
+{
+    for(auto edge: nodes.find(id_source)->second.adj)
+    {
+        if(edge.dest==id_target)
+        {
+            return edge.dist;
+        }
+    }
+    return 0;
 }
 
 
