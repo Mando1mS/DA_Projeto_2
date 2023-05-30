@@ -21,12 +21,19 @@ public:
     /**
      * @brief Creates a new manager.
      * @details Constructor of the "Gestor" class.
+     * @param fich Path to the chosen file.
      */
     Gestor(std::string fich);
+    /**
+     *
+     * @param fich Path to the chosen file of nodes.
+     * @param fich2 Path to the chosen file of edges.
+     */
     Gestor(std::string fich,std::string fich2);
     /**
-     * @brief Prints all of the stored stations.
+     * @brief Prints all of the stored nodes.
      */
      void MostrarNodes();
+     void VerAdj();
 };
 #endif //DA_PROJETO_1_GESTOR_H

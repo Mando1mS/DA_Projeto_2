@@ -184,7 +184,7 @@ void Menu::ToyShow()
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
-        std::cout << "| 2 - Opcao 2                                          |\n";
+        std::cout << "| 2 - Ver Adj                                          |\n";
         std::cout << "| 3 - Opcao 3                                          |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
@@ -204,7 +204,7 @@ void Menu::ToyShow()
                 gestor_.MostrarNodes();
                 break;
             case '2':
-
+                gestor_.VerAdj();
                 break;
             case '3':
                 break;
@@ -242,7 +242,7 @@ void Menu::RealShow()
                 gestor_.MostrarNodes();
                 break;
             case '2':
-
+                gestor_.VerAdj();
                 break;
             case '3':
                 break;
@@ -281,7 +281,7 @@ void Menu::EFCShow()
                 gestor_.MostrarNodes();
                 break;
             case '2':
-
+                gestor_.VerAdj();
                 break;
             case '3':
                 break;

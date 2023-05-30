@@ -82,3 +82,22 @@ void Gestor::MostrarNodes() {
         cout << left << setw(6) << "Source: " << setw(40) << node.first << "\n";
     }
 }
+
+void Gestor::VerAdj() {
+    string nod;
+    cout << "Digite o node: ";
+    cout << "\n";
+    cin >> nod;
+    auto source =graph_->nodes.find(nod);
+    if(source!=graph_->nodes.end())
+    {
+        for (auto e:source->second.adj)
+        {
+            std::cout << "Destino: " << e.dest << " \n";
+        }
+    }
+    else
+    {
+        cout << "Nao encontrado" << "\n";
+    }
+}

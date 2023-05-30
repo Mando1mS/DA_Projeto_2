@@ -41,12 +41,12 @@ private:
          * @brief List of outgoing edges, to adjacent nodes.
          */
         std::list<Edge> adj;
-        /**
-         * @brief Verifies if the node has been visited on a previous search.
-         * @details This variable set to True means that the node has been visited and False otherwise.
-         */
          std::pair<string,string> coord;
          std::string label;
+        /**
+        * @brief Verifies if the node has been visited on a previous search.
+        * @details This variable set to True means that the node has been visited and False otherwise.
+        */
          bool visited;
          /**
          * @brief A list that stores another list with all the stations and services from the source all the way to the target node.
