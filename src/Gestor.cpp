@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iomanip>
 #include <set>
+#include <algorithm>
+#include <chrono>
 
 using namespace std;
 
@@ -102,4 +104,15 @@ void Gestor::VerAdj() {
     {
         cout << "Nao encontrado" << "\n";
     }
+}
+
+std::chrono::steady_clock::time_point startTime;
+
+void Gestor::startTimer() {
+    startTime = std::chrono::steady_clock::now();
+}
+
+long long Gestor::stopTimer() {
+    auto endTime = std::chrono::steady_clock::now();
+    return std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
 }

@@ -35,5 +35,8 @@ public:
      */
      void MostrarNodes();
      void VerAdj();
+
+     void startTimer();
+     long long int stopTimer();
 };
 #endif //DA_PROJETO_1_GESTOR_H
