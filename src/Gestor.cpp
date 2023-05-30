@@ -115,7 +115,7 @@ void Gestor::VerAdj() {
     }
 }
 
-void Gestor::BackTracking(int n, int currentNode, int count, int currentCost, int& bestCost){
+void Gestor::BackTracking(int n, int currentNode, int count, int currentCost, double& bestCost){
     if(count==n && graph_->HasEdge(currentNode, 0)!=0){
         bestCost = min(bestCost, currentCost + graph_->HasEdge(currentNode,0));
         return;
