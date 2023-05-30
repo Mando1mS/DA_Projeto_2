@@ -29,5 +29,6 @@ public:
      void ToyShow();
     void EFCShow();
     void RealShow();
+    void Backtrack();
 };
 #endif //DA_PROJETO_2_MENU_H

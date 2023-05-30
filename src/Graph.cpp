@@ -48,7 +48,7 @@ double Graph::HasEdge(const int &id_source, const int &id_target)
             return edge.dist;
         }
     }
-    return 0;
+    return 0.0;
 }
 
 

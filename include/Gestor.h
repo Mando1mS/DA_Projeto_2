@@ -39,5 +39,6 @@ public:
 
      void startTimer();
      long long int stopTimer();
+     double Get_Size();
 };
 #endif //DA_PROJETO_1_GESTOR_H

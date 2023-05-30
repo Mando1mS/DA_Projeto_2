@@ -185,7 +185,7 @@ void Menu::ToyShow()
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
         std::cout << "| 2 - Ver Adj                                          |\n";
-        std::cout << "| 3 - Opcao 3                                          |\n";
+        std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
         std::cout << "--------------------------------------------------------\n";
@@ -194,11 +194,11 @@ void Menu::ToyShow()
         while(true) {
             std::cout << "\nOpcao: ";
             std::cin >> opt;
-            if(opt <= '3' && opt >= '0')
+            if(opt <= '4' && opt >= '0')
                 break;
             std::cout << "Opcao invalida, escolha outra.\n";
         }
-
+        double best=DBL_MAX;
         switch(opt) {
             case '1':
                 gestor_.MostrarNodes();
@@ -207,6 +207,11 @@ void Menu::ToyShow()
                 gestor_.VerAdj();
                 break;
             case '3':
+                gestor_.BackTracking(0,1,0,best);
+                std::cout << "O melhor caminho tem: " << to_string(best) << " . \n";
+                break;
+            case '4':
+                std::cout << "Size:" << to_string(gestor_.Get_Size()) << "\n";
                 break;
             case '0':
                 Toy();

@@ -118,19 +118,24 @@ void Gestor::VerAdj() {
 }
 
 void Gestor::BackTracking(int currentNode, int count, int currentCost, double& bestCost){
-    if(count==graph_->nodes.size() && graph_->HasEdge(currentNode, 0)!=0){
+    if(count==graph_->nodes.size() && graph_->HasEdge(currentNode, 0)!=0.0){
         bestCost = min(bestCost, currentCost + graph_->HasEdge(currentNode,0));
         return;
     }
     for(int i = 0; i<graph_->nodes.size(); i++){
-        if(!graph_->nodes.find(i)->second.visited && graph_->HasEdge(currentNode, i)!=0){
+        if(!graph_->nodes.find(i)->second.visited && graph_->HasEdge(currentNode, i)!=0.0){
             graph_->nodes.find(i)->second.visited = true;
-            BackTracking(i, count+1, currentCost + graph_->HasEdge(currentNode,0), bestCost);
+            BackTracking(i, count+1, currentCost + graph_->HasEdge(currentNode,i), bestCost);
             graph_->nodes.find(i)->second.visited = false;
         }
     }
+    return;
 }
 
+double Gestor::Get_Size()
+{
+    return graph_->HasEdge(1,12);
+}
 
 
 std::chrono::steady_clock::time_point startTime;
