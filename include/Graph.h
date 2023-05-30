@@ -88,7 +88,7 @@ public:
      */
      std::unordered_map<int, Node> nodes;
      void setUnvisited();
-     bool HasEdge(const int &id_source, const int &id_target);
+     double HasEdge(const int &id_source, const int &id_target);
      };
 
 

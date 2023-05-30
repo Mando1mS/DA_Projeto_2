@@ -39,16 +39,16 @@ void Graph::addEdge(const int &id_source, const int &id_target,const double &dis
     source->second.adj.push_back({id_target,dist});
 }
 
-bool Graph::HasEdge(const int &id_source, const int &id_target)
+double Graph::HasEdge(const int &id_source, const int &id_target)
 {
     for(auto edge: nodes.find(id_source)->second.adj)
     {
         if(edge.dest==id_target)
         {
-            return true;
+            return edge.dist;
         }
     }
-    return false;
+    return 0;
 }
 
 
