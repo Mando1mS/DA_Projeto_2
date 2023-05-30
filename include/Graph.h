@@ -24,19 +24,19 @@ private:
          * @brief Destination Node.
          * @details Uses only the name because of its unique nature.
          */
-        std::string dest;
+        int dest;
         /**
          * @brief Capacity of the line.
          * @details Number of simultaneously traveling trains in a line.
          */
-        std::string dist;
+        double dist;
 
     };
     struct Node {
         /**
          * @brief id.
          */
-        std::string id;
+        int id;
         /**
          * @brief List of outgoing edges, to adjacent nodes.
          */
@@ -62,7 +62,7 @@ public:
      * @param nome_estacao Name of the station.
      * @param estacao All of the station information.
      */
-    void addNode(const std::string &id,std::string label="");
+    void addNode(const int &id,std::string label="");
 
     /**
      * @brief Add a node to the Graph using the name of the station as a key and the whole "Estacao" class as the value.
@@ -71,7 +71,7 @@ public:
      * @param nome_estacao Name of the station.
      * @param estacao All of the station information.
      */
-    void addNode(const std::string &id,std::string lng, std::string lat);
+    void addNode(const int &id,std::string lng, std::string lat);
     /**
      * @brief Add an edge from a source station to a target station using the capacity of the line as the weight.
      * @details Time Complexity - O(|V| + |E|).
@@ -81,12 +81,12 @@ public:
      * @param cap Number of simultaneously traveling trains in a line.
      * @param tipo Type of service used.
      */
-    void addEdge(const std::string &id_source, const std::string &id_target,std::string &dist);
+    void addEdge(const int &id_source, const int &id_target,const double &dist);
     /**
      * @brief A hash table containing the connection between the name of the station and its node.
      * @details When searching the Time Complexity is O(1).
      */
-     std::unordered_map<std::string, Node> nodes;
+     std::unordered_map<int, Node> nodes;
      void setUnvisited();
      };
 

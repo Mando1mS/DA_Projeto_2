@@ -26,26 +26,30 @@ void Gestor::LerFicheiros(std::string fich) {
     getline(input, line);
     while(getline(input, line)) {//n^2
         std::stringstream ss(line);
-
+        int src,trg;
+        double dis;
         std::string source, target, dist,trec,label1,label2;
 
         getline(ss, source, ',');//n
         getline(ss, target, ',');
         getline(ss, dist, ',');
+        src=stoi(source);
+        trg=stoi(target);
+        dis=stod(dist);
         if (ss >> trec) {
             // Handle the case with labels
             getline(ss, label1, ',');
             getline(ss, label2, '\r');
-            graph_->addNode(source,label1);
-            graph_->addNode(target,label2);
+            graph_->addNode(src,label1);
+            graph_->addNode(trg,label2);
         } else {
             // Handle the case without labels
             getline(ss, dist, '\r');
-            graph_->addNode(source);
-            graph_->addNode(target);
+            graph_->addNode(src);
+            graph_->addNode(trg);
         }
-        graph_->addEdge(source,target,dist);
-        graph_->addEdge(target,source,dist);
+        graph_->addEdge(src,trg,dis);
+        graph_->addEdge(trg,src,dis);
     }
 }
 
@@ -58,39 +62,46 @@ void Gestor::LerFicheiros(std::string fich,std::string fich2) {
     getline(input_edges, line);
     while(getline(input_nodes, line)) {//n^2
         std::stringstream ss(line);
-
+        int src;
         std::string source, lng, lat;
-
         getline(ss, source, ',');//n
         getline(ss, lng, ',');
         getline(ss, lat, '\r');
-        graph_->addNode(source,lng,lat);
+        src=stoi(source);
+        graph_->addNode(src,lng,lat);
     }
     while(getline(input_edges, line))
     {
         std::stringstream ss(line);
+        int src,trg;
+        double dis;
         std::string source, target, dist;
 
         getline(ss, source, ',');//n
         getline(ss, target, ',');
         getline(ss, dist, '\r');
-        graph_->addEdge(source,target,dist);
-        graph_->addEdge(target,source,dist);
+        src=stoi(source);
+        trg=stoi(target);
+        dis=stod(dist);
+        graph_->addEdge(src,trg,dis);
+        graph_->addEdge(trg,src,dis);
     }
 }
 void Gestor::MostrarNodes() {
     for(auto node:graph_->nodes)
     {
-        cout << left << setw(6) << "Source: " << setw(40) << node.first << "\n";
+        cout << left << setw(6) << "Source: " << setw(40) << to_string(node.first) << "\n";
     }
 }
 
 void Gestor::VerAdj() {
     string nod;
+    int a;
     cout << "Digite o node: ";
     cout << "\n";
     cin >> nod;
-    auto source =graph_->nodes.find(nod);
+    a=stoi(nod);
+    auto source =graph_->nodes.find(a);
     if(source!=graph_->nodes.end())
     {
         for (auto e:source->second.adj)
