@@ -115,15 +115,15 @@ void Gestor::VerAdj() {
     }
 }
 
-void Gestor::BackTracking(int n, int currentNode, int count, int currentCost, double& bestCost){
-    if(count==n && graph_->HasEdge(currentNode, 0)!=0){
+void Gestor::BackTracking(int currentNode, int count, int currentCost, double& bestCost){
+    if(count==graph_->nodes.size() && graph_->HasEdge(currentNode, 0)!=0){
         bestCost = min(bestCost, currentCost + graph_->HasEdge(currentNode,0));
         return;
     }
-    for(int i = 0; i<n; i++){
+    for(int i = 0; i<graph_->nodes.size(); i++){
         if(!graph_->nodes.find(i)->second.visited && graph_->HasEdge(currentNode, i)!=0){
             graph_->nodes.find(i)->second.visited = true;
-            BackTracking(n, i, count+1, currentCost + graph_->HasEdge(currentNode,0), bestCost);
+            BackTracking(i, count+1, currentCost + graph_->HasEdge(currentNode,0), bestCost);
             graph_->nodes.find(i)->second.visited = false;
         }
     }
