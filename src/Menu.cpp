@@ -4,7 +4,7 @@
 #include "../include/Menu.h"
 
 
-
+long long int tempo;
 Menu::Menu():gestor_(Gestor("../data/Toy-Graphs/stadiums.csv")) {}
 void Menu::iniciarMenu() {
     while(true) {
@@ -207,8 +207,11 @@ void Menu::ToyShow()
                 gestor_.VerAdj();
                 break;
             case '3':
+                gestor_.startTimer();
                 gestor_.BackTracking(0,1,0,best);
+                tempo= gestor_.stopTimer();
                 std::cout << "O melhor caminho tem: " << to_string(best) << " . \n";
+                std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
                 break;
             case '4':
                 std::cout << "Size:" << to_string(gestor_.Get_Size()) << "\n";

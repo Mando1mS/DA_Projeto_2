@@ -146,5 +146,5 @@ void Gestor::startTimer() {
 
 long long Gestor::stopTimer() {
     auto endTime = std::chrono::steady_clock::now();
-    return std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
+    return std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
 }
