@@ -35,7 +35,7 @@ public:
      */
      void MostrarNodes();
      void VerAdj();
-     void BackTracking(int currentNode, int count, int currentCost, double &bestCost);
+     void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
 
      void startTimer();
      long long int stopTimer();
