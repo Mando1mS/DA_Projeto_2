@@ -11,11 +11,13 @@ using namespace std;
 Gestor::Gestor(string fich) {
     graph_=new Graph();
     LerFicheiros(fich);
+    graph_->setUnvisited();
 }
 
 Gestor::Gestor(string fich,string fich2) {
     graph_=new Graph();
     LerFicheiros(fich,fich2);
+    graph_->setUnvisited();
 }
 void Gestor::LerFicheiros(std::string fich) {
     std::ifstream input(fich);
