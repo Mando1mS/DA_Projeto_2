@@ -70,7 +70,7 @@ public:
     * @return void
     */
      void mstPrim();
-
+    void mstPrim2();
     /**
     * @brief Auxiliar function to find the minimum spanning tree
     * @param parent vector of ints that contains the parent of each node
