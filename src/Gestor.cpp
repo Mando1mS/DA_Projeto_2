@@ -194,6 +194,7 @@ void Gestor::PreorderTraversal(int currentNode, vector<int>& preorder){
 }
 
 double Gestor::AddPreorder(vector<int> preorder){
+    graph_->setUnvisited();
     double cost=0;
     for(int i=0; i<preorder.size()-1; i++){
         cost += graph_->HasEdge(preorder[i], preorder[i+1]);

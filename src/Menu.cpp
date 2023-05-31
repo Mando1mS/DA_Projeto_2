@@ -111,7 +111,6 @@ void Menu::EFC()
                 break;
             std::cout << "Opcao invalida, escolha outra.\n";
         }
-
         switch(opt) {
             case '1':
                 gestor_=Gestor("../data/Extra_Fully_Connected_Graphs/edges_25.csv");
@@ -130,7 +129,7 @@ void Menu::EFC()
                 EFCShow();
                 break;
             case '5':
-                gestor_=Gestor("../data/Extra_Fully_Connected_Graphs/edges_200.csv");
+                gestor_=Gestor("../data/Extra_Fully_Connected_Graphs/edges_900.csv");
                 EFCShow();
                 break;
             case '0':
@@ -246,8 +245,8 @@ void Menu::RealShow()
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
-        std::cout << "| 2 - Ver Adj                                          |\n";
-        std::cout << "| 3 - Opcao 3                                          |\n";
+        std::cout << "| 2 - Triangular Inequality                            |\n";
+        std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
         std::cout << "--------------------------------------------------------\n";
@@ -260,15 +259,30 @@ void Menu::RealShow()
                 break;
             std::cout << "Opcao invalida, escolha outra.\n";
         }
-
+        double best=DBL_MAX;
+        vector<int> preorder;
         switch(opt) {
             case '1':
                 gestor_.MostrarNodes();
                 break;
             case '2':
-                gestor_.VerAdj();
+                gestor_.startTimer();
+                gestor_.mstPrim();
+                gestor_.PreorderTraversal(0, preorder);
+                tempo= gestor_.stopTimer();
+                std::cout << "O melhor caminho tem: " << to_string(gestor_.AddPreorder(preorder)) << " . \n";
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '3':
+                gestor_.startTimer();
+                gestor_.BackTracking(0,1,0,best);
+                tempo= gestor_.stopTimer();
+                std::cout << "O melhor caminho tem: " << to_string(best) << " . \n";
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '0':
                 Real();
@@ -285,8 +299,8 @@ void Menu::EFCShow()
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
-        std::cout << "| 2 - Ver adj                                          |\n";
-        std::cout << "| 3 - Opcao 3                                          |\n";
+        std::cout << "| 2 - Triangular Inequality                            |\n";
+        std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
         std::cout << "--------------------------------------------------------\n";
@@ -300,12 +314,20 @@ void Menu::EFCShow()
             std::cout << "Opcao invalida, escolha outra.\n";
         }
         double best=DBL_MAX;
+        vector<int> preorder;
         switch(opt) {
             case '1':
                 gestor_.MostrarNodes();
                 break;
             case '2':
-                gestor_.VerAdj();
+                gestor_.startTimer();
+                gestor_.mstPrim();
+                gestor_.PreorderTraversal(0, preorder);
+                tempo= gestor_.stopTimer();
+                std::cout << "O melhor caminho tem: " << to_string(gestor_.AddPreorder(preorder)) << " . \n";
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '3':
                 gestor_.startTimer();
