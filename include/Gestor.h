@@ -31,20 +31,72 @@ public:
      */
     Gestor(std::string fich,std::string fich2);
     /**
-     * @brief Prints all of the stored nodes.
-     */
-     void MostrarNodes();
-     void VerAdj();
-     void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
-     void PreorderTraversal(int currentNode, vector<int>& preorder);
-     double AddPreorder(vector<int> preorder);
+    * @brief Function that shows the nodes of the graph
+    * @return void
+    */
+    void MostrarNodes();
 
+    /**
+    * @brief Function that shows the edges of a node
+    * @return void
+    */
+    void VerAdj();
+
+    /**
+    * @brief Function that uses the backtracking algorithm to solve the TSP
+    * @param currentNode int with the current node
+    * @param count int with the number of nodes visited
+    * @param currentCost double with the current cost
+    * @param bestCost double with the best cost
+    * @return void
+    */
+     void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
+
+
+    /**
+    * @brief Auxiliar function to find the minimum spanning tree
+    * @param key vector of ints that contains the key values
+    * @param inMST vector of bools that indicates if a node is in the MST
+    * @return int with the index of the minimum value
+     */
+    void PreorderTraversal(int currentNode, vector<int>& preorder);
+
+
+    double AddPreorder(vector<int> preorder);
+
+    /**
+    * @brief Function that calculates the minimum spanning tree using Prim's algorithm
+    * On average, the time complexity is O(V^2)
+    * @return void
+    */
      void mstPrim();
+
+    /**
+    * @brief Auxiliar function to find the minimum spanning tree
+    * @param parent vector of ints that contains the parent of each node
+    * @return void
+    */
      void mstEdge(vector<int> parent);
+
+    /**
+     * @brief Auxiliar function to find the minimum spanning tree
+     * @param key
+     * @param inMST
+     * @return int with the index of the minimum value
+     */
      int minQueue(vector<int> key, vector <bool> inMST);
 
+    /**
+    * @brief Function that starts the timer
+    * @return void
+    */
      void startTimer();
-     long long int stopTimer();
-     double Get_Size();
+
+    /**
+    * @brief Function that stops the timer
+    * @return void
+    */
+    long long int stopTimer();
+    double Get_Size();
 };
 #endif //DA_PROJETO_1_GESTOR_H

@@ -89,6 +89,7 @@ void Gestor::LerFicheiros(std::string fich,std::string fich2) {
         graph_->addEdge(trg,src,dis);
     }
 }
+
 void Gestor::MostrarNodes() {
     for(auto node:graph_->nodes)
     {
@@ -176,8 +177,6 @@ void Gestor::mstPrim() {
     mstEdge(parent);
 }
 
-
-
 double Gestor::Get_Size()
 {
     return graph_->HasEdge(1,12);
@@ -202,7 +201,8 @@ double Gestor::AddPreorder(vector<int> preorder){
     return cost + graph_->HasEdge(preorder.back(),preorder.front());
 }
 
-std::chrono::steady_clock::time_point startTime;
+std::chrono::steady_clock::time_point startTime; /**< Variable that stores the start time of the timer */
+
 
 void Gestor::startTimer() {
     startTime = std::chrono::steady_clock::now();
