@@ -37,7 +37,7 @@ public:
      void VerAdj();
      void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
      void PreorderTraversal(int currentNode, vector<int>& preorder);
-     int AddPreorder(vector<int> preorder);
+     double AddPreorder(vector<int> preorder);
 
      void mstPrim();
      void mstEdge(vector<int> parent);

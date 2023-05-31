@@ -184,7 +184,7 @@ void Menu::ToyShow()
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
-        std::cout << "| 2 - Ver Adj                                          |\n";
+        std::cout << "| 2 - Triangular Inequality                            |\n";
         std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
@@ -199,19 +199,29 @@ void Menu::ToyShow()
             std::cout << "Opcao invalida, escolha outra.\n";
         }
         double best=DBL_MAX;
+        vector<int> preorder;
         switch(opt) {
             case '1':
                 gestor_.MostrarNodes();
                 break;
             case '2':
-                gestor_.VerAdj();
+                gestor_.startTimer();
+                gestor_.mstPrim();
+                gestor_.PreorderTraversal(0, preorder);
+                tempo= gestor_.stopTimer();
+                std::cout << "O melhor caminho tem: " << to_string(gestor_.AddPreorder(preorder)) << " . \n";
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '3':
                 gestor_.startTimer();
                 gestor_.BackTracking(0,1,0,best);
                 tempo= gestor_.stopTimer();
                 std::cout << "O melhor caminho tem: " << to_string(best) << " . \n";
-                std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '4':
                 std::cout << "Size:" << to_string(gestor_.Get_Size()) << "\n";
@@ -236,7 +246,7 @@ void Menu::RealShow()
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
-        std::cout << "| 2 - Opcao 2                                          |\n";
+        std::cout << "| 2 - Ver Adj                                          |\n";
         std::cout << "| 3 - Opcao 3                                          |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
@@ -275,7 +285,7 @@ void Menu::EFCShow()
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 1 - Mostrar                                          |\n";
-        std::cout << "| 2 - Opcao 2                                          |\n";
+        std::cout << "| 2 - Ver adj                                          |\n";
         std::cout << "| 3 - Opcao 3                                          |\n";
         std::cout << "|                                                      |\n";
         std::cout << "| 0 - Go back                                          |\n";
@@ -289,7 +299,7 @@ void Menu::EFCShow()
                 break;
             std::cout << "Opcao invalida, escolha outra.\n";
         }
-
+        double best=DBL_MAX;
         switch(opt) {
             case '1':
                 gestor_.MostrarNodes();
@@ -298,6 +308,14 @@ void Menu::EFCShow()
                 gestor_.VerAdj();
                 break;
             case '3':
+                gestor_.startTimer();
+                gestor_.BackTracking(0,1,0,best);
+                tempo= gestor_.stopTimer();
+                std::cout << "O melhor caminho tem: " << to_string(best) << " . \n";
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
+                break;
                 break;
             case '0':
                 EFC();

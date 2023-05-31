@@ -173,20 +173,6 @@ void Gestor::mstPrim() {
             }
         }
     }
-    /*while (!q.empty()) {
-        int u = minQueue(key);
-        auto itr = remove(q.begin(), q.end(), u);
-        q.erase(itr, q.end());
-        graph_->nodes.find(u)->second.visited = true;
-        for (auto e:graph_->nodes.find(u)->second.adj) {
-            if (!graph_->nodes.find(e.dest)->second.visited && key[e.dest] > e.dist) {
-                key[e.dest] = e.dist;
-                //e.inMST = true;
-                parent[e.dest] = u;
-            }
-        }
-    }
-     */
     mstEdge(parent);
 }
 
@@ -207,8 +193,8 @@ void Gestor::PreorderTraversal(int currentNode, vector<int>& preorder){
     }
 }
 
-int Gestor::AddPreorder(vector<int> preorder){
-    int cost=0;
+double Gestor::AddPreorder(vector<int> preorder){
+    double cost=0;
     for(int i=0; i<preorder.size()-1; i++){
         cost += graph_->HasEdge(preorder[i], preorder[i+1]);
     }
