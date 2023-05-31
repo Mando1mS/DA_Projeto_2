@@ -137,6 +137,23 @@ double Gestor::Get_Size()
     return graph_->HasEdge(1,12);
 }
 
+void Gestor::PreorderTraversal(int currentNode, vector<int>& preorder){
+    graph_->nodes.find(currentNode)->second.visited = true;
+    preorder.push_back(currentNode);
+    for(auto edge : graph_->nodes.find(currentNode)->second.adj){
+        if(edge.inMST && !graph_->nodes.find(edge.dest)->second.visited){
+        PreorderTraversal(edge.dest, preorder);
+        }
+    }
+}
+
+int Gestor::AddPreorder(vector<int> preorder){
+    int cost=0;
+    for(int i=0; i<preorder.size()-1; i++){
+        cost += graph_->HasEdge(preorder[i], preorder[i+1]);
+    }
+    return cost + graph_->HasEdge(preorder.back(),preorder.front());
+}
 
 std::chrono::steady_clock::time_point startTime;
 

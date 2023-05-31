@@ -36,7 +36,8 @@ public:
      void MostrarNodes();
      void VerAdj();
      void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
-
+     void PreorderTraversal(int currentNode, vector<int>& preorder);
+     int AddPreorder(vector<int> preorder);
      void startTimer();
      long long int stopTimer();
      double Get_Size();
