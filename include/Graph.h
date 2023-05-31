@@ -32,7 +32,7 @@ private:
          * @details Number of simultaneously traveling trains in a line.
          */
         double dist;
-
+        bool inMST;
     };
     struct Node {
         /**

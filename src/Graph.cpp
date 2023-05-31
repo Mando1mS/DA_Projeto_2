@@ -36,7 +36,7 @@ void Graph::addEdge(const int &id_source, const int &id_target,const double &dis
     auto source = nodes.find(id_source);
     auto target = nodes.find(id_target);
     if(source == nodes.end() || target == nodes.end() || source == target) return;
-    source->second.adj.push_back({id_target,dist});
+    source->second.adj.push_back({id_target,dist,false});
 }
 
 double Graph::HasEdge(const int &id_source, const int &id_target)
