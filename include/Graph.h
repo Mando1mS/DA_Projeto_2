@@ -91,6 +91,7 @@ public:
      std::unordered_map<int, Node> nodes;
      void setUnvisited();
      double HasEdge(const int &id_source, const int &id_target);
+     void setEdge(const int &id_source, const int &id_target);
      };
 
 

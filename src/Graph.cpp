@@ -51,6 +51,15 @@ double Graph::HasEdge(const int &id_source, const int &id_target)
     return 0.0;
 }
 
+void Graph::setEdge(const int &id_source, const int &id_target) {
+    for(auto &edge: nodes.find(id_source)->second.adj)
+    {
+        if(edge.dest==id_target)
+        {
+            edge.inMST = true;
+        }
+    }
+}
 
 
 

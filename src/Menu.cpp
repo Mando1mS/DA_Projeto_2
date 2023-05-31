@@ -194,7 +194,7 @@ void Menu::ToyShow()
         while(true) {
             std::cout << "\nOpcao: ";
             std::cin >> opt;
-            if(opt <= '4' && opt >= '0')
+            if(opt <= '5' && opt >= '0')
                 break;
             std::cout << "Opcao invalida, escolha outra.\n";
         }
@@ -216,6 +216,12 @@ void Menu::ToyShow()
             case '4':
                 std::cout << "Size:" << to_string(gestor_.Get_Size()) << "\n";
                 break;
+            case '5':
+                std::cout << "Parent ";
+                gestor_.mstPrim();
+                gestor_.VerAdj();
+                break;
+
             case '0':
                 Toy();
                 break;
