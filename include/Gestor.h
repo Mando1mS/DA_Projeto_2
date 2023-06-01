@@ -64,6 +64,8 @@ public:
 
     double AddPreorder(vector<int> preorder);
 
+    double Greedy();
+
     /**
     * @brief Function that calculates the minimum spanning tree using Prim's algorithm
     * On average, the time complexity is O(V^2)

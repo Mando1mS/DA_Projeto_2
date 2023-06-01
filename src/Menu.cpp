@@ -129,7 +129,7 @@ void Menu::EFC()
                 EFCShow();
                 break;
             case '5':
-                gestor_=Gestor("../data/Extra_Fully_Connected_Graphs/edges_900.csv");
+                gestor_=Gestor("../data/Extra_Fully_Connected_Graphs/edges_200.csv");
                 EFCShow();
                 break;
             case '0':
@@ -182,7 +182,7 @@ void Menu::ToyShow()
         std::cout << "|                     Toy Graph                        |\n";
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
-        std::cout << "| 1 - Mostrar                                          |\n";
+        std::cout << "| 1 - Greedy                                           |\n";
         std::cout << "| 2 - Triangular Inequality                            |\n";
         std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
@@ -201,7 +201,12 @@ void Menu::ToyShow()
         vector<int> preorder;
         switch(opt) {
             case '1':
-                gestor_.MostrarNodes();
+                gestor_.startTimer();
+                std::cout << "O melhor caminho tem: " << to_string(gestor_.Greedy()) << " . \n";
+                tempo= gestor_.stopTimer();
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '2':
                 gestor_.startTimer();
@@ -244,7 +249,7 @@ void Menu::RealShow()
         std::cout << "|                  Real World Graphs                   |\n";
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
-        std::cout << "| 1 - Mostrar                                          |\n";
+        std::cout << "| 1 - Greedy                                           |\n";
         std::cout << "| 2 - Triangular Inequality                            |\n";
         std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
@@ -263,7 +268,12 @@ void Menu::RealShow()
         vector<int> preorder;
         switch(opt) {
             case '1':
-                gestor_.MostrarNodes();
+                gestor_.startTimer();
+                std::cout << "O melhor caminho tem: " << to_string(gestor_.Greedy()) << " . \n";
+                tempo= gestor_.stopTimer();
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '2':
                 gestor_.startTimer();
@@ -298,7 +308,7 @@ void Menu::EFCShow()
         std::cout << "|                 Extra-Fully Connected                |\n";
         std::cout << "|                                                      |\n";
         std::cout << "|                                                      |\n";
-        std::cout << "| 1 - Mostrar                                          |\n";
+        std::cout << "| 1 - Greedy                                           |\n";
         std::cout << "| 2 - Triangular Inequality                            |\n";
         std::cout << "| 3 - Backtracking                                     |\n";
         std::cout << "|                                                      |\n";
@@ -317,7 +327,12 @@ void Menu::EFCShow()
         vector<int> preorder;
         switch(opt) {
             case '1':
-                gestor_.MostrarNodes();
+                gestor_.startTimer();
+                std::cout << "O melhor caminho tem: " << to_string(gestor_.Greedy()) << " . \n";
+                tempo= gestor_.stopTimer();
+                if(tempo<1000) std::cout << "Demorou : " << to_string(tempo) << " microssegundos \n";
+                else if(tempo<1000000) std::cout << "Demorou : " << to_string(tempo/1000) << " milisegundos \n";
+                else std::cout << "Demorou : " << to_string(tempo/1000000) << " segundos \n";
                 break;
             case '2':
                 gestor_.startTimer();

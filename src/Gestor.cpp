@@ -230,6 +230,28 @@ double Gestor::AddPreorder(vector<int> preorder){
     return cost + graph_->HasEdge(preorder.back(),preorder.front());
 }
 
+double Gestor::Greedy(){
+    graph_->setUnvisited();
+    double cost = 0;
+    int count = 1;
+    int currentNode = 0;
+    int destNode = 0;
+    while(count<graph_->nodes.size()){
+        graph_->nodes.find(currentNode)->second.visited=true;
+        double bestEdge = DBL_MAX;
+        for(auto e : graph_->nodes.find(currentNode)->second.adj){
+            if(e.dist<bestEdge && !graph_->nodes.find(e.dest)->second.visited){
+                bestEdge = e.dist;
+                destNode = e.dest;
+            }
+        }
+        count++;
+        cost+=bestEdge;
+        currentNode=destNode;
+    }
+    return cost+graph_->HasEdge(currentNode,0);
+}
+
 std::chrono::steady_clock::time_point startTime; /**< Variable that stores the start time of the timer */
 
 
