@@ -138,45 +138,8 @@ void Gestor::BackTracking(int currentNode, int count, double currentCost, double
     return;
 }
 
-int Gestor::minQueue(vector<int> key, vector <bool> inMST) {
-    int min = INT_MAX;
-    int index = 0;
-    for (int i = 0; i < key.size(); i++) {
-        if (key[i] < min && inMST[i] == false) {
-            min = key[i];
-            index = i;
-        }
-    }
-    return index;
-}
-void Gestor::mstPrim2() {
-    priority_queue< iPair, vector <iPair> , greater<iPair> > pq;
-    int n = graph_->nodes.size();
 
-    vector <int> key(n, INT_MAX);
-    vector <int> parent(n, -1);
-    vector <bool> inMST(n, false);
-    pq.push(make_pair(0, 0));
-    key[0] = 0;
-    while(!pq.empty())
-    {
-        int u=pq.top().second;
-        pq.pop();
-        if(inMST[u])
-        {
-            continue;
-        }
-        inMST[u] = true;
-        for (int v = 0; v < n; v++) {
-            if (graph_->HasEdge(u, v) != 0 && !inMST[v] && graph_->HasEdge(u, v) < key[v]) {
-                parent[v] = u;
-                key[v] = graph_->HasEdge(u, v);
-                pq.push(make_pair(key[v],v));
-            }
-        }
-    }
-    mstEdge(parent);
-}
+
 void Gestor::mstEdge(vector<int> parent) {
     int n = parent.size();
     for (int i = 1; i < n; i++) {
@@ -185,28 +148,7 @@ void Gestor::mstEdge(vector<int> parent) {
     }
 }
 
-void Gestor::mstPrim() {
-    int n = graph_->nodes.size();
 
-    vector <int> key(n, INT_MAX);
-    vector <int> parent(n, -1);
-    vector <bool> inMST(n, false);
-
-    key[0] = 0;
-    parent[0] = -1;
-
-    for (int count = 0; count < n-1; count++) {
-        int u = minQueue(key, inMST);
-        inMST[u] = true;
-        for (int v = 0; v < n; v++) {
-            if (graph_->HasEdge(u, v) != 0 && inMST[v] == false && graph_->HasEdge(u, v) < key[v]) {
-                parent[v] = u;
-                key[v] = graph_->HasEdge(u, v);
-            }
-        }
-    }
-    mstEdge(parent);
-}
 
 void Gestor::primMST() {
     int n = graph_->nodes.size();

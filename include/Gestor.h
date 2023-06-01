@@ -50,74 +50,55 @@ public:
     */
      void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
     /**
-    * @brief Auxiliar function to find the minimum spanning tree
-    * @param key vector of ints that contains the key values
-    * @param inMST vector of bools that indicates if a node is in the MST
-    * @return int with the index of the minimum value
+    * @brief Auxiliary function to solve the TSP problem using Triangular Inequality.
+    * @details Calculates the new path to the TSP.
+    * @param currentNode Current Node being searched.
+    * @param preorder Vector including the TSP path.
      */
     void PreorderTraversal(int currentNode, vector<int>& preorder);
     /**
-    * @brief Auxiliar function to find the minimum spanning tree
+    * @brief Auxiliary function to add the weighs of the TSP path using Triangular Inequality.
     * @param preorder vector of ints that contains the key values
-    * @return
+    * @return Total distance the Traveling Salesman has to travel.
      */
     double AddPreorder(vector<int> preorder);
     /**
      * @brief Function that solves the TSP problem using a greedy approach.
+     * @details Time Complexity O(E V).
      * @return Total cost of the TSP problem.
      */
     double Greedy();
     /**
-    * @brief Function that calculates the minimum spanning tree using Prim's algorithm
-    * @details On average, the time complexity is O(V^2)
-    */
-     void mstPrim();
-    /**
-   * @brief Function that calculates the minimum spanning tree using Prim's algorithm
-   * @details Currently time complexity is O(V^2), not optimized to O(E log(V))
-   * @return void
-   */
-    void mstPrim2();
-    /**
-    * @brief Auxiliar function to find the minimum spanning tree
+    * @brief Auxiliar function that changes the boolean inMST ina  Edge that belongs to the MST.
     * @param parent vector of ints that contains the parent of each node
-    * @return void
     */
      void mstEdge(vector<int> parent);
-
     /**
-     * @brief Auxiliar function to find the minimum spanning tree
-     * @param key
-     * @param inMST
-     * @return int with the index of the minimum value
-     */
-     int minQueue(vector<int> key, vector <bool> inMST);
-
+    * @brief Function that calculates the minimum spanning tree using Prim's algorithm
+    * @details Currently time complexity is O(E log(V))
+    */
      void primMST();
-
     /**
      * @brief Function that calculates the distance between two coordinates
-     * @param lat1
-     * @param lon1
-     * @param lat2
-     * @param lon2
+     * @param lat1 Latitude coordinates from node 1.
+     * @param lon1 Longitude coordinates from node 1.
+     * @param lat2 Latitude coordinates from node 2.
+     * @param lon2  Longitude coordinates from node 2.
      * @return double with the distance between the two coordinates
      */
      double haversine(double lat1, double lon1, double lat2, double lon2);
-
     /**
     * @brief Function that starts the timer
     */
      void startTimer();
-
     /**
     * @brief Function that stops the timer
      * @return Time elapsed in microseconds;
     */
     long long int stopTimer();
     /**
-     *
-     * @return
+     * Function used to test the distance between 2 nodes.
+     * @return Distance between 2 testing nodes.
      */
     double Get_Size();
 };
