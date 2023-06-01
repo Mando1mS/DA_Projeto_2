@@ -7,6 +7,8 @@
 #include <set>
 #include <algorithm>
 #include <chrono>
+#include <cmath>
+#include <functional>
 #include <bits/stdc++.h>
 typedef pair<int, int> iPair;
 
@@ -206,6 +208,37 @@ void Gestor::mstPrim() {
     mstEdge(parent);
 }
 
+void Gestor::primMST() {
+    int n = graph_->nodes.size();
+    vector <int> key(n, INT_MAX);
+    vector <int> parent(n, -1);
+    vector <bool> inMST(n, false);
+    priority_queue <pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+    key[0] = 0;
+    pq.push(make_pair(0, 0));
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        pq.pop();
+
+        inMST[u] = true;
+
+        for (auto edge: graph_->nodes.find(u)->second.adj) {
+            int v = edge.dest;
+            int dist = edge.dist;
+
+            if (!inMST[v] && dist < key[v]) {
+                parent[v] = u;
+                key[v] = dist;
+
+                pq.push(make_pair(key[v], v));
+            }
+        }
+    }
+    mstEdge(parent);
+}
+
 double Gestor::Get_Size()
 {
     return graph_->HasEdge(1,12);
@@ -250,6 +283,19 @@ double Gestor::Greedy(){
         currentNode=destNode;
     }
     return cost+graph_->HasEdge(currentNode,0);
+}
+
+double Gestor::haversine(double lat1, double lon1, double lat2, double lon2) {
+    double dLat = (lat2 - lat1) * M_PI / 180.0;
+    double dLon = (lon2 - lon1) * M_PI / 180.0;
+    lat1 = (lat1) * M_PI / 180.0;
+    lat2 = (lat2) * M_PI / 180.0;
+    double a = pow(sin(dLat / 2), 2) +
+               pow(sin(dLon / 2), 2) *
+               cos(lat1) * cos(lat2);
+    double rad = 6371;
+    double c = 2 * asin(sqrt(a));
+    return rad * c;
 }
 
 std::chrono::steady_clock::time_point startTime; /**< Variable that stores the start time of the timer */

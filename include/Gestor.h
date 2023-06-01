@@ -93,6 +93,18 @@ public:
      */
      int minQueue(vector<int> key, vector <bool> inMST);
 
+     void primMST();
+
+    /**
+     * @brief Function that calculates the distance between two coordinates
+     * @param lat1
+     * @param lon1
+     * @param lat2
+     * @param lon2
+     * @return double with the distance between the two coordinates
+     */
+     double haversine(double lat1, double lon1, double lat2, double lon2);
+
     /**
     * @brief Function that starts the timer
     */

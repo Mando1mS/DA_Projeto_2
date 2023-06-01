@@ -210,7 +210,7 @@ void Menu::ToyShow()
                 break;
             case '2':
                 gestor_.startTimer();
-                gestor_.mstPrim2();
+                gestor_.mstPrim();
                 gestor_.PreorderTraversal(0, preorder);
                 tempo= gestor_.stopTimer();
                 std::cout << "O melhor caminho tem: " << to_string(gestor_.AddPreorder(preorder)) << " . \n";
@@ -232,7 +232,7 @@ void Menu::ToyShow()
                 break;
             case '5':
                 std::cout << "Parent ";
-                gestor_.mstPrim2();
+                gestor_.primMST;
                 gestor_.VerAdj();
                 break;
 
@@ -277,7 +277,7 @@ void Menu::RealShow()
                 break;
             case '2':
                 gestor_.startTimer();
-                gestor_.mstPrim2();
+                gestor_.primMST();
                 gestor_.PreorderTraversal(0, preorder);
                 tempo= gestor_.stopTimer();
                 std::cout << "O melhor caminho tem: " << to_string(gestor_.AddPreorder(preorder)) << " . \n";
