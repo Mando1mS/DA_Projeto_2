@@ -25,34 +25,30 @@ public:
      */
     Gestor(std::string fich);
     /**
-     *
+     * @brief Creates a new manager.
+     * @details Overloading of the "Gestor" class.
+     * @details Used to read the data from Real-world Graphs which have 2 files to read.
      * @param fich Path to the chosen file of nodes.
      * @param fich2 Path to the chosen file of edges.
      */
     Gestor(std::string fich,std::string fich2);
     /**
-    * @brief Function that shows the nodes of the graph
-    * @return void
+    * @brief Function that shows the nodes of the graph.
     */
     void MostrarNodes();
-
     /**
-    * @brief Function that shows the edges of a node
-    * @return void
+    * @brief Function that shows the edges of a node.
     */
     void VerAdj();
-
     /**
     * @brief Function that uses the backtracking algorithm to solve the TSP
+     * @details Time Complexity (!V). V is the number of nodes.
     * @param currentNode int with the current node
     * @param count int with the number of nodes visited
     * @param currentCost double with the current cost
     * @param bestCost double with the best cost
-    * @return void
     */
      void BackTracking(int currentNode, int count, double currentCost, double &bestCost);
-
-
     /**
     * @brief Auxiliar function to find the minimum spanning tree
     * @param key vector of ints that contains the key values
@@ -60,18 +56,27 @@ public:
     * @return int with the index of the minimum value
      */
     void PreorderTraversal(int currentNode, vector<int>& preorder);
-
-
+    /**
+    * @brief Auxiliar function to find the minimum spanning tree
+    * @param preorder vector of ints that contains the key values
+    * @return
+     */
     double AddPreorder(vector<int> preorder);
-
+    /**
+     * @brief Function that solves the TSP problem using a greedy approach.
+     * @return Total cost of the TSP problem.
+     */
     double Greedy();
-
     /**
     * @brief Function that calculates the minimum spanning tree using Prim's algorithm
-    * On average, the time complexity is O(V^2)
-    * @return void
+    * @details On average, the time complexity is O(V^2)
     */
      void mstPrim();
+    /**
+   * @brief Function that calculates the minimum spanning tree using Prim's algorithm
+   * @details Currently time complexity is O(V^2), not optimized to O(E log(V))
+   * @return void
+   */
     void mstPrim2();
     /**
     * @brief Auxiliar function to find the minimum spanning tree
@@ -90,15 +95,18 @@ public:
 
     /**
     * @brief Function that starts the timer
-    * @return void
     */
      void startTimer();
 
     /**
     * @brief Function that stops the timer
-    * @return void
+     * @return Time elapsed in microseconds;
     */
     long long int stopTimer();
+    /**
+     *
+     * @return
+     */
     double Get_Size();
 };
 #endif //DA_PROJETO_1_GESTOR_H
