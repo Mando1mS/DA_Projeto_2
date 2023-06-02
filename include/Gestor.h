@@ -15,7 +15,19 @@ private:
      * @brief A pointer to the network graph which contains all info about the train network.
      */
     Graph* graph_;
+    /**
+     * @brief Reads all the data , and stores them in the appropriate data struct.
+     * @details Time Complexity O(N^2). N being the number of lines in a csv file.
+     * @param fich Path to the chosen file
+     */
     void LerFicheiros(std::string fich);
+    /**
+     * @brief Reads all the data , and stores them in the appropriate data struct.
+     * @details Overloading of the LerFicheiros function. Used to read 2 files , available on Real-world Graphs.
+     * @details Time Complexity O(N^2). N being the number of lines in a csv file.
+     * @param fich
+     * @param fich2
+     */
     void LerFicheiros(std::string fich,std::string fich2);
 public:
     /**
