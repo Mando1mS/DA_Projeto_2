@@ -224,6 +224,7 @@ double Gestor::Greedy(){
         cost+=bestEdge;
         currentNode=destNode;
     }
+    graph_->setUnvisited();
     return cost+graph_->HasEdge(currentNode,0);
 }
 
