@@ -200,7 +200,13 @@ double Gestor::AddPreorder(vector<int> preorder){
     graph_->setUnvisited();
     double cost=0;
     for(int i=0; i<preorder.size()-1; i++){
-        cost += graph_->HasEdge(preorder[i], preorder[i+1]);
+        if(graph_->HasEdge(preorder[i], preorder[i+1])==0.0){
+            cost += haversine(stod(graph_->nodes.find(preorder[i])->second.coord.second),
+                              stod(graph_->nodes.find(preorder[i])->second.coord.first),
+                              stod(graph_->nodes.find(preorder[i+1])->second.coord.second),
+                              stod(graph_->nodes.find(preorder[i+1])->second.coord.first));
+        }
+        else cost += graph_->HasEdge(preorder[i], preorder[i+1]);
     }
     return cost + graph_->HasEdge(preorder.back(),preorder.front());
 }
